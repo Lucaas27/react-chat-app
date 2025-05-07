@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "build:backend",
+      "detail": "Build the backend project",
+      "path": "backend/"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "build:frontend",
+      "detail": "Build the frontend project",
+      "path": "frontend/"
+    },
+    {
+      "label": "build:all",
+      "dependsOn": [
+        "build:backend",
+        "build:frontend"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

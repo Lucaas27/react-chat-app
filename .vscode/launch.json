@@ -1,0 +1,77 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: Development",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start:dev"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/backend",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Frontend: Development",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/frontend",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Backend: Production",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/backend",
+      "preLaunchTask": "build:backend"
+    },
+    {
+      "name": "Frontend: Production",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "preview"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/frontend",
+      "preLaunchTask": "build:frontend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack: Development",
+      "configurations": [
+        "Backend: Development",
+        "Frontend: Development"
+      ]
+    },
+    {
+      "name": "Full Stack: Production",
+      "configurations": [
+        "Backend: Production",
+        "Frontend: Production"
+      ]
+    }
+  ]
+}
